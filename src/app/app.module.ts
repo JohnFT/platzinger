@@ -24,7 +24,10 @@ import { environment } from 'src/environments/environment';
 import { RegisterComponent } from './register/register.component';
 import { UserService } from './services/user.service';
 import { RequestComponent } from './home/request/request.component';
-import { MAT_DIALOG_DEFAULT_OPTIONS, MatDialogModule, MatInputModule, MatButtonModule, MatSelectModule, MatIconModule } from '@angular/material';
+import {
+  MAT_DIALOG_DEFAULT_OPTIONS, MatDialogModule, MatInputModule,
+  MatButtonModule, MatSelectModule, MatIconModule
+} from '@angular/material';
 import { RequestModalComponent } from './modals/request/request.component';
 import { ContactComponent } from './home/contact/contact.component';
 
