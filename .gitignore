@@ -4,7 +4,7 @@
 /dist
 /tmp
 /out-tsc
-
+/Platzinger-win32-x64
 # dependencies
 /node_modules
 
