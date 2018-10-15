@@ -1,0 +1,67 @@
+<section class="Component-conversation h-100" [class.shaker]="shake">
+    <div class="container-fluid h-100">
+        <div class="user-content d-flex flex-column h-100 w-100">
+            <div class="friend-content d-flex h-100">
+                <div class="friend-avatar avatar-content">
+                    <div class="avatar-frame">
+                        <img [src]="friend.avatar || './assets/images/generic_avatar.png'" class="avatar-image " alt="avatar image">
+                    </div>
+                </div>
+                <div class="conversation-content-list d-flex flex-column w-100">
+                    <div class="friend-data d-flex">
+                        <h2 class="friend-data-name">
+                            {{friend.nick}}
+                        </h2>
+                        <small class="align-self-end">({{friend.status}})</small>
+                    </div>
+                    <hr class="w-100">
+                    <ul class="conversation-list h-100">
+                        <li *ngFor="let message of messages" class="conversation-message">
+                            <b>{{getNickName(message.sender)}}</b>
+                            <p *ngIf="!message.type || message.type === 'text'">{{message.text}}</p>
+                            <p *ngIf="message.type === 'zumbido'"><b>zumbido...</b></p>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+            <div class="my-content d-flex">
+                <div class="friend-avatar avatar-content">
+                    <div class="avatar-frame">
+                        <img [src]="user.avatar || './assets/images/generic_avatar.png'" class="avatar-image " alt="avatar image">
+                    </div>
+                </div>
+                <div class="conversation-content-message d-flex flex-column w-100">
+                    <textarea [(ngModel)]="textMessage" name="textMessage" id="textMessage" class="conversation-message"
+                        (keyup.enter)="sendMessage()"></textarea>
+                    <div class="conversation-content-actions d-flex justify-content-end">
+                        <ul class="conversation-actions-list">
+                            <li class="conversation-action-item">
+                                <button class="notBg pointer">
+                                    <img src="./assets/images/icons/regular_smile.gif" alt="smail image">
+                                    <i name="caret-down"></i>
+                                </button>
+                            </li>
+                            <li class="conversation-action-item">
+                                <button class="notBg pointer" (click)="sendZumbido()">
+                                    <img src="./assets/images/zumbido.png" [style.width]="'40px'" alt="zumbido image">
+                                    <i name="caret-down"></i>
+                                </button>
+                            </li>
+                            <li class="conversation-action-item">
+                                <button class="btn btn-info">
+                                    Enviar
+                                </button>
+                            </li>
+                            <li class="conversation-action-item">
+                                <button class="btn btn-info">
+                                    <i class="fas fa-paperclip"></i>
+                                </button>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

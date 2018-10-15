@@ -1,0 +1,14 @@
+.Component {
+    &-profile {
+        background-image: url(/assets/images/msnbg.jpg);
+        background-repeat: no-repeat;
+        background-size: 100%;
+        padding: 20px;
+        .avatar-frame-online {
+            max-width: 200px;
+            padding: 3px;
+            border: none;
+            box-shadow: 0px 0px 5px black;
+        }
+    }
+}

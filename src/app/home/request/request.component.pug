@@ -1,0 +1,13 @@
+h2(mat-dialog-title) Add  Your Friends
+mat-dialog-content
+    .container
+        form(*ngIf="friendEmail")
+            mat-form-field.w-100
+                input(matInput placeholder="Friend email" 
+                    '[formControl]'="friendEmail" 
+                    '(keyup.enter)'="sendRequest()"
+                    name="friendEmail")
+                mat-error(*ngIf="friendEmail.hasError('email') && !friendEmail.hasError('required')") Please enter a valid email address
+                mat-error(*ngIf="friendEmail.hasError('required')") Email is <strong>required</strong>
+mat-dialog-actions.justify-content-end
+    button(mat-flat-button color="primary" '(click)'="sendRequest()" )  Enviar

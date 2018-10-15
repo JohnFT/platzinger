@@ -1,0 +1,29 @@
+<div class="Component-register h-100">
+    <div class="container h-100">
+        <div class="row justify-content-md-center p-3">
+            <div class="col-md-3">
+                <div class="avatar-frame-online">
+                    <img src="./assets/images/generic_avatar.png" class="avatar-image  img-fluid" alt="avatar image">
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-md-center">
+            <div class="col-md-6">
+                <div class="text-center">
+                    <h1>Iniciar Sesion</h1>
+                </div>
+                <div class="m-3">
+                    <form [formGroup]="forma" (ngSubmit)="onSubmit()">
+                        <input class="form-control mb-1" formControlName="email" name="email" type="email" placeholder="Email..">
+                        <input class="form-control mb-1" formControlName="password" name="password" type="password" placeholder="Password..">
+                        <input class="form-control mb-1" formControlName="nick" name="nick" type="text" placeholder="Nick..">
+                        <div class="text-center m-3">
+                            <button [disabled]="forma.invalid" class="btn btn-primary btn-block" type="submit">Register</button>
+                            <a class="p-3">Registarse</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

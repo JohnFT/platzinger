@@ -1,0 +1,40 @@
+<div class="Component-home h-100 d-flex flex-column">
+    <div class="d-flex container-fluid">
+        <div class="avatar-frame-online">
+            <img [src]="user.avatar || './assets/images/generic_avatar.png'" class="avatar-image  img-fluid" alt="avatar image">
+        </div>
+        <div class="avatar-info p-2">
+            <h6>
+                <b>{{user.nick}}</b>
+            </h6>
+            <p class="p-0 m-0">{{user.status}}</p>
+            <p class="p-0 m-0">
+                {{user.email}}
+            </p>
+            <a class="pointer" (click)="signOut()">
+                <small>
+                    <b>Cerrar Sesion</b>
+                </small>
+            </a>
+        </div>
+    </div>
+    <div class="d-flex flex-column h-100 Component-home-body">
+        <div class="container-fluid">
+            <div class="search-content d-flex">
+                <input type="text" placeholder="Buscar Amigos..." [(ngModel)]="search" class="form-control">
+                <figure class="add-friend pointer" (click)="openRequest()">
+                    <img class="icon-image-add" src="assets/images/logo_live_add.png" width="30" alt="img add icon">
+                </figure>
+            </div>
+            <div class="users-content" *ngIf="user.friends">
+                <hr>
+                <b>Amigos ({{user.friends.length }} / {{user.friends.length}}) </b>
+                <ul class="users-content-list">
+                    <li *ngFor="let friend of user.friends | search: search" class="user-item">
+                        <app-contact [uid]="friend.uid"></app-contact>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

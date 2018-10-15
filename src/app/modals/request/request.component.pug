@@ -1,0 +1,11 @@
+.Component-request
+    h2(mat-dialog-title) {{friend.nick}}  wants to be your friend
+    mat-dialog-content.p3  
+        .avatar.d-flex.justify-content-center
+            figure.rounded-circle.avatar-content
+                img([src]="friend.avatar || './assets/images/generic_avatar.png'", alt="request friend image").avatar-image
+        h6.text-center  Add {{friend.nick}} to friends  ?
+    mat-dialog-actions.justify-content-center
+        button(mat-flat-button, color="primary", '(click)'="close('rejected')").mr-1 No
+        button(mat-flat-button, color="primary", '(click)'="close('pending')").mr-1 After
+        button(mat-flat-button, color="primary", '(click)'="close('accepted')") Yes

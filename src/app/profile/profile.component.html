@@ -1,0 +1,38 @@
+<section class="Component-profile h-100">
+    <div class="container d-flex">
+        <div class="d-flex flex-column p-3">
+            <div class="avatar-frame-online">
+                <img [src]="croppedImage || user.avatar ||'./assets/images/generic_avatar.png'" class="avatar-image  img-fluid"
+                    alt="avatar image">
+            </div>
+            <div class="pt-3 d-flex flex-column">
+                <label for="imageInput">Image</label>
+                <button class="btn btn-secundary" (click)="imageInput.click()">
+                    Upload Image
+                </button>
+                <input type="file" class="form-control" name="imageInput" #imageInput [hidden]="true" (change)="fileChangeEvent($event)">
+                <image-cropper [imageChangedEvent]="imageChangedEvent" [maintainAspectRatio]="true" [aspectRatio]="4 / 3"
+                    [resizeToWidth]="128" format="png" (imageCropped)="imageCropped($event)" (imageLoaded)="imageLoaded()"
+                    (loadImageFailed)="loadImageFailed()"></image-cropper>
+            </div>
+        </div>
+        <div class="d-flex flex-column w-100 p-3">
+            <form>
+                <label for="nickname">Nickname:</label>
+                <input type="text" class="form-control mb-3" [(ngModel)]="user.nick" placeholder="nickname" name="nickname">
+                <label for="subnickname">Age:</label>
+                <input type="text" class="form-control mb-3" [(ngModel)]="user.age" placeholder="age" name="age">
+                <label for="email">Email:</label>
+                <input type="text" class="form-control mb-3" [(ngModel)]="user.email" placeholder="email" name="email"
+                    readonly>
+                <label for="status">Status:</label>
+                <select class="form-control mb-3" placeholder="status" [(ngModel)]="user.status" name="status">
+                    <option value="online">online</option>
+                    <option value="offline">ofline</option>
+                    <option value="desconected">desconected</option>
+                </select>
+                <button class="btn btn-info btn-block" (click)="onEditing()">Save</button>
+            </form>
+        </div>
+    </div>
+</section>
